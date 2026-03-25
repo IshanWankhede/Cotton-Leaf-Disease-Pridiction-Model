@@ -1,0 +1,19 @@
+YOLOV8 Training
+
+!pip install ultralytics -q
+
+from ultralytics import YOLO
+
+model = YOLO("yolov8m.pt")
+
+!touch data.yaml
+
+open directory paste in it
+
+model.train(data = "/content/data.yaml" , epochs = 2)
+
+model trained ready now testing
+
+infer = YOLO("/content/runs/detect/train/weights/best.pt")
+
+infer.predict("/content/drive/MyDrive/Plant Detection.v1i.yolov8/test/images", save = True , save_txt = True)
